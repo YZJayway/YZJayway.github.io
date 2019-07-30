@@ -452,56 +452,10 @@
         
           
             <p>title: 我的测试文章<br>date: 2019-06-23 18:15:12<br>tags:</p>
-<h1 id="芽庄"><a href="#芽庄" class="headerlink" title="芽庄"></a>芽庄</h1><h2 id="芽庄-1"><a href="#芽庄-1" class="headerlink" title="芽庄"></a>芽庄</h2><blockquote>
-</blockquote>
-<p>‘use strict’;<br>var cheerio = require(‘cheerio’);</p>
-<p>// <a href="http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string" target="_blank" rel="noopener">http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</a><br>function getPosition(str, m, i) {<br>  return str.split(m, i).join(m).length;<br>}</p>
-<p>hexo.extend.filter.register(‘after_post_render’, function(data){<br>  var config = hexo.config;<br>  if(config.post_asset_folder){<br>    var link = data.permalink;<br>    var beginPos = getPosition(link, ‘/‘, 3) + 1;<br>    var appendLink = ‘’;<br>    // In hexo 3.1.1, the permalink of “about” page is like “…/about/index.html”.<br>    // if not with index.html endpos = link.lastIndexOf(‘.’) + 1 support hexo-abbrlink<br>    if(/.*\/index.html$/.test(link)) {<br>      // when permalink is end with index.html, for example 2019/02/20/xxtitle/index.html<br>      // image in xxtitle/ will go to xxtitle/index/<br>      appendLink = ‘index/‘;<br>      var endPos = link.lastIndexOf(‘/‘);<br>    }<br>    else {<br>      var endPos = link.lastIndexOf(‘.’);<br>    }<br>    link = link.substring(beginPos, endPos) + ‘/‘ + appendLink;</p>
-<pre><code>var toprocess = [&apos;excerpt&apos;, &apos;more&apos;, &apos;content&apos;];
-for(var i = 0; i &lt; toprocess.length; i++){
-  var key = toprocess[i];
-
-  var $ = cheerio.load(data[key], {
-    ignoreWhitespace: false,
-    xmlMode: false,
-    lowerCaseTags: false,
-    decodeEntities: false
-  });
-
-  $(&apos;img&apos;).each(function(){
-    if ($(this).attr(&apos;src&apos;)){
-      // For windows style path, we replace &apos;\&apos; to &apos;/&apos;.
-      var src = $(this).attr(&apos;src&apos;).replace(&apos;\\&apos;, &apos;/&apos;);
-      if(!(/http[s]*.*|\/\/.*/.test(src)
-        || /^\s+\//.test(src)
-        || /^\s*\/uploads|images\//.test(src))) {
-        // For &quot;about&quot; page, the first part of &quot;src&quot; can&apos;t be removed.
-        // In addition, to support multi-level local directory.
-        var linkArray = link.split(&apos;/&apos;).filter(function(elem){
-          return elem != &apos;&apos;;
-        });
-        var srcArray = src.split(&apos;/&apos;).filter(function(elem){
-          return elem != &apos;&apos; &amp;&amp; elem != &apos;.&apos;;
-        });
-        if(srcArray.length &gt; 1)
-        srcArray.shift();
-        src = srcArray.join(&apos;/&apos;);
-
-        $(this).attr(&apos;src&apos;, config.root + link + src);
-        console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);
-      }
-    }else{
-      console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);
-      console.info&amp;&amp;console.info($(this));
-    }
-  });
-  data[key] = $.html();
-}
-
-});
-</code></pre><p>yoursite.com</p>
+<h1 id="芽庄"><a href="#芽庄" class="headerlink" title="芽庄"></a>芽庄</h1><h2 id="芽庄-1"><a href="#芽庄-1" class="headerlink" title="芽庄"></a>芽庄</h2><p><img src="/images/微信图片_20190724173833.jpg" alt="老家"></p>
 <p><img src="/images/芽庄.png" alt="芽庄"></p>
-<p><img src="//yoursite.com/2019/07/15/我的测试文章/Users\YZJ\Downloads\PersonalBlog\Hexo\source\_posts\我的测试文章\微信图片_20190724173833.jpg" alt="微信图片_20190724173833"></p>
+<p><em><!-- Spirits - KOKIA --></em><br><em><!-- Begin --></em></p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32069326&auto=0&height=66"></iframe><br><em><!-- End --></em></p>
 
           
         
